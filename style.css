@@ -20,12 +20,18 @@
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    color: var(--text);
     background: var(--background);
-    position: relative;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /* Add animated gradient background */
@@ -72,7 +78,6 @@ body::before {
     margin: 100px auto;
     position: relative;
     z-index: 1;
-    animation: in-circle-swoop var(--transition__duration) ease-in-out forwards;
 }
 
 /* Add media query for larger screens */
@@ -107,7 +112,7 @@ h1 {
     position: relative;
     width: 100%;
     height: 400px;
-    margin-bottom: 1.5rem;
+    margin: 2rem auto;
     border-radius: 15px;
     overflow: hidden;
     background: rgba(11, 12, 4, 0.5);
@@ -429,13 +434,24 @@ nav {
 
 /* Add transition styles */
 .page-transition {
-    animation: in-circle-swoop var(--transition__duration) ease-in-out forwards;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-/* Apply to container */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure smooth transitions */
 .container {
-    /* Existing styles */
-    animation: in-circle-swoop var(--transition__duration) ease-in-out forwards;
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* Add loader styles */
@@ -763,4 +779,118 @@ nav {
     .input-group label {
         font-size: 0.9rem;
     }
+}
+
+/* Update hamburger menu styles */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.3s ease;
+    margin-left: auto; /* Push to right */
+    padding: 0.5rem;
+    z-index: 100;
+}
+
+/* Update mobile nav styles */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-right: 0.5rem; /* Add some right margin */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 2.5rem; /* Move more to the left */
+        left: auto;
+        transform: translateY(-200%);
+        width: 120px; /* Reduced width */
+        padding: 1rem; /* Reduced padding */
+        background: rgba(11, 12, 4, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        flex-direction: column;
+        gap: 1.5rem; /* Reduced gap */
+        transition: transform 0.3s ease;
+        border: 1px solid rgba(215, 219, 139, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        padding: 0.6rem 0.8rem; /* Reduced padding */
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-toggle {
+        font-size: 1.2rem;
+        padding: 0.4rem;
+    }
+
+    .nav-links {
+        right: 2rem; /* Adjust for smaller screens */
+        width: 110px; /* Further reduced for mobile */
+    }
 } 
+/* Add to style.css */
+.gallery-container {
+    margin-top: 120px;
+    padding: 0 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.gallery-item {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.gallery-content {
+    padding: 1rem;
+}
+
+.gallery-prompt {
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-date {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
