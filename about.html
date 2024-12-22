@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Cat Generator</title>
+    <title>AI Image Generator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header class="main-header">
         <nav>
-            <div class="logo">Cat Generator</div>
+            <div class="logo">AI Imagine</div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Create</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container about-container">
-        <h1>About Cat Generator</h1>
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Welcome to Cat Generator!</h2>
-                <p>We're passionate about bringing joy through random cat images. Our platform connects to The Cat API to deliver adorable cat pictures at the click of a button.</p>
-                <h3>Features</h3>
-                <ul>
-                    <li>Instant random cat images</li>
-                    <li>High-quality photos</li>
-                    <li>User-friendly interface</li>
-                    <li>Completely free to use</li>
-                </ul>
-            </div>
+    <div class="container">
+        <h1>AI Image Generator</h1>
+        <div class="cat-container">
+            <img id="cat-img" src="" alt="Generated Image">
         </div>
+        <div class="input-group">
+            <input type="text" id="prompt-input" required>
+            <label for="prompt-input">Describe your imagination...</label>
+            <div class="input-highlight"></div>
+        </div>
+        <button id="generate-btn">Generate Image</button>
     </div>
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Cat Generator</h4>
-                <p>Bringing joy through random cat images</p>
+                <h4>AI Imagine</h4>
+                <p>Transform your words into stunning visuals</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Create</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
@@ -58,9 +57,10 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Cat Generator. All rights reserved.</p>
+            <p>&copy; 2024 AI Imagine. All rights reserved.</p>
         </div>
     </footer>
+    <script src="script.js"></script>
     <script src="transition.js"></script>
 </body>
 </html> 
