@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Image Generator</title>
+    <title>About - AI Image Generator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -11,27 +11,28 @@
     <header class="main-header">
         <nav>
             <div class="logo">AI Imagine</div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Create</a></li>
+                <li><a href="index.html">Create</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="active">About</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1>AI Image Generator</h1>
-        <div class="cat-container">
-            <img id="cat-img" src="" alt="Generated Image">
+    <div class="container about-container">
+        <h1>About AI Imagine</h1>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Welcome to AI Imagine!</h2>
+                <p>We harness the power of artificial intelligence to transform your textual descriptions into stunning visual masterpieces. Our platform uses cutting-edge AI technology to bring your imagination to life.</p>
+                <h3>Features</h3>
+                <ul>
+                    <li>Text-to-image generation</li>
+                    <li>High-resolution outputs</li>
+                    <li>Intuitive user interface</li>
+                    <li>Advanced AI algorithms</li>
+                </ul>
+            </div>
         </div>
-        <div class="input-group">
-            <input type="text" id="prompt-input" required>
-            <label for="prompt-input">Describe your imagination...</label>
-            <div class="input-highlight"></div>
-        </div>
-        <button id="generate-btn">Generate Image</button>
     </div>
     <footer class="main-footer">
         <div class="footer-content">
@@ -60,7 +61,6 @@
             <p>&copy; 2024 AI Imagine. All rights reserved.</p>
         </div>
     </footer>
-    <script src="script.js"></script>
     <script src="transition.js"></script>
 </body>
 </html> 
