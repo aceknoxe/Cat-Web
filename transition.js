@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Reset scroll position
+    window.scrollTo(0, 0);
+    
     // Add transition class when page loads
     document.body.classList.add('page-transition');
 
@@ -9,12 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = this.getAttribute('href');
             
             // Start exit animation
-            document.querySelector('.container').style.animation = 'in-circle-swoop var(--transition__duration) ease-in-out reverse';
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
             
-            // Navigate after animation
+            // Navigate after animation and reset scroll
             setTimeout(() => {
+                window.scrollTo(0, 0);
                 window.location.href = target;
-            }, 800); // Match this with --transition__duration
+            }, 300);
         });
     });
 }); 
